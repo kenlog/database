@@ -1,8 +1,8 @@
 {
-    "name": "opis/database",
-    "description": "A database abstraction layer over PDO, that provides a powerful and intuitive query builder, bundled with an easy to use schema builder",
-    "keywords": ["database", "query", "abstraction layer", "mysql", "postgre", "sql", "sqlite",  "query builder", "schema builder"],
-    "homepage": "https://opis.io/database",
+    "name": "kenlog/database-custom",
+    "description": "A database abstraction layer over PDO, that provides a powerful and intuitive query builder, bundled with an easy to use schema builder. This is a custom version of opis/database with updates for PHP 8 compatibility.",
+    "keywords": ["database", "query", "abstraction layer", "mysql", "postgre", "sql", "sqlite",  "query builder", "schema builder", "php8", "custom"],
+    "homepage": "https://github.com/kenlog/database",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -12,13 +12,19 @@
         {
             "name": "Sorin Sarca",
             "email": "sarca_sorin@hotmail.com"
+        },
+        {
+            "name": "Valentino Pesce",
+            "email": "valentino@iltuobrand.it",
+            "homepage": "https://github.com/kenlog",
+            "role": "Maintainer of the PHP 8 Compatible Fork"
         }
     ],
     "scripts": {
       "test": "vendor/bin/phpunit"
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.4 || ^8.0",
         "ext-pdo": "*"
     },
     "require-dev": {
