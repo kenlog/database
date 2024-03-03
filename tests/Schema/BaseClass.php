@@ -51,7 +51,7 @@ class BaseClass extends TestCase
         static::$db_schema = new Schema(new Connection($name));
     }
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->schema = static::$db_schema;
     }
