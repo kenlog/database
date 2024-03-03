@@ -37,16 +37,17 @@ class BaseClass extends TestCase
     /** @var Schema */
     protected $schema;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $name = static::$schema_name;
 
-        static::$data = array_map(function($value){
+        static::$data = array_map(function ($value) {
             if (is_string($value)) {
                 $value = rtrim($value);
             }
             return $value;
         }, Yaml::parseFile(__DIR__ . '/../data/schema/' . $name . '.yaml'));
+
         static::$db_schema = new Schema(new Connection($name));
     }
 
