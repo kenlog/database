@@ -20,9 +20,8 @@ namespace Opis\Database;
 use PDO;
 use PDOStatement;
 use PDOException;
-use Serializable;
 
-class Connection implements Serializable
+class Connection
 {
     /** @var    string  Username */
     protected $username;
@@ -608,16 +607,16 @@ class Connection implements Serializable
      *
      * @return  string
      */
-    public function serialize()
+    public function __serialize(): array
     {
-        return serialize([
+        return [
             'username' => $this->username,
             'password' => $this->password,
             'logQueries' => $this->logQueries,
             'options' => $this->options,
             'commands' => $this->commands,
             'dsn' => $this->dsn,
-        ]);
+        ];
     }
 
     /**
@@ -625,12 +624,13 @@ class Connection implements Serializable
      *
      * @param   string $data Serialized data
      */
-    public function unserialize($data)
+    public function __unserialize(array $data): void
     {
-        $object = unserialize($data);
-
-        foreach ($object as $key => $value) {
-            $this->{$key} = $value;
-        }
+        $this->username = $data['username'];
+        $this->password = $data['password'];
+        $this->logQueries = $data['logQueries'];
+        $this->options = $data['options'];
+        $this->commands = $data['commands'];
+        $this->dsn = $data['dsn'];
     }
 }
