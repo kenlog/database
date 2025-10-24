@@ -159,6 +159,26 @@ class Having
     }
 
     /**
+     * @param mixed $value
+     * @param bool $is_column
+     *
+     */
+    public function like($value, bool $is_column = false)
+    {
+        $this->addCondition($value, 'LIKE', $is_column);
+    }
+
+    /**
+     * @param mixed $value
+     * @param bool $is_column
+     *
+     */
+    public function notLike($value, bool $is_column = false)
+    {
+        $this->addCondition($value, 'NOT LIKE', $is_column);
+    }
+
+    /**
      * @inheritDoc
      */
     public function __clone()
